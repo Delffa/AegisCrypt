@@ -1,83 +1,391 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="dEI09-8AqHE0BHC0x9rVQot980e1WKQAujfwB34xfmI" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AegisCrypt</title>
+
+<title>Delfa Zero | Siber Güvenlik Araştırmacısı & Yazılım Geliştirici</title>
+
+<meta name="description" content="Delfa Zero - Siber güvenlik araştırmacısı, Python geliştiricisi, OSINT meraklısı ve açık kaynak proje geliştiricisi.">
+<meta name="keywords" content="Delfa Zero, Siber Güvenlik, Cyber Security, Python Developer, OSINT, Network Security">
+<meta name="author" content="Delfa Zero">
+
+<meta property="og:title" content="Delfa Zero">
+<meta property="og:description" content="Siber Güvenlik Araştırmacısı & Yazılım Geliştirici">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    background:#0f172a;
-    color:white;
-    margin:0;
+background:#050816;
+color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
+
+#matrix{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,255,255,.12), transparent 30%),
+radial-gradient(circle at 80% 40%, rgba(0,140,255,.12), transparent 30%),
+radial-gradient(circle at 50% 90%, rgba(0,255,170,.08), transparent 30%);
+z-index:-1;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(15px);
+background:rgba(5,8,22,.5);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
+
+.logo{
+font-family:'Orbitron';
+font-size:1.2rem;
+font-weight:900;
+color:#00ffff;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+margin-left:20px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00ffff;
 }
 
 .hero{
-    text-align:center;
-    padding:100px 20px;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
 }
 
-h1{
-    font-size:60px;
+.hero-content{
+max-width:900px;
+}
+
+.hero h1{
+font-family:'Orbitron';
+font-size:5rem;
+font-weight:900;
+color:#00ffff;
+text-shadow:
+0 0 10px #00ffff,
+0 0 25px #00ffff,
+0 0 60px #00ffff;
+}
+
+.hero h2{
+margin-top:20px;
+font-size:1.5rem;
+color:#cbd5e1;
+}
+
+.hero p{
+margin-top:30px;
+font-size:1.1rem;
+line-height:1.8;
+color:#cbd5e1;
 }
 
 .btn{
-    display:inline-block;
-    padding:12px 25px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;1
+display:inline-block;
+margin-top:40px;
+padding:15px 35px;
+border:1px solid #00ffff;
+border-radius:50px;
+color:white;
+text-decoration:none;
+transition:.3s;
 }
 
-.features{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    padding:50px;
+.btn:hover{
+background:#00ffff;
+color:black;
+box-shadow:0 0 25px #00ffff;
+}
+
+section{
+padding:100px 10%;
+}
+
+.title{
+font-family:'Orbitron';
+color:#00ffff;
+font-size:2rem;
+margin-bottom:40px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
-    background:#1e293b;
-    padding:20px;
-    width:250px;
-    border-radius:10px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(0,255,255,.15);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(12px);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,255,255,.25);
+}
+
+.card h3{
+margin-bottom:10px;
+color:#00ffff;
+}
+
+.terminal{
+background:#000;
+border:1px solid #00ff9d;
+padding:20px;
+border-radius:15px;
+font-family:monospace;
+color:#00ff9d;
+margin-top:40px;
+box-shadow:0 0 25px rgba(0,255,157,.15);
+}
+
+.cursor{
+animation:blink .8s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0;}
+}
+
+footer{
+padding:40px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+color:#94a3b8;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:3rem;
+}
 }
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-    <h1>AegisCrypt</h1>
-    <p>Modernn AES-256-GCM File Encryption Tool</p>
+<canvas id="matrix"></canvas>
 
-    <a class="btn" href="https://github.com/Delffa/encryption-system">
-        GitHub Repository
-    </a>
+<nav>
+<div class="logo">DELFA ZERO</div>
+
+<div>
+<a href="#about">Hakkımda</a>
+<a href="#skills">Yetenekler</a>
+<a href="#contact">İletişim</a>
+</div>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>DELFA ZERO</h1>
+
+<h2 id="typing"></h2>
+
+<p>
+Merhaba, ben Delfa Zero.
+
+Siber güvenlik, ağ teknolojileri, Python geliştirme,
+OSINT araştırmaları ve açık kaynak projeler üzerine
+çalışmalar yürütüyorum.
+
+Yeni teknolojileri keşfetmeyi, araçlar geliştirmeyi
+ve bilgi paylaşımını önemsiyorum.
+</p>
+
+<a href="#about" class="btn">
+Keşfet
+</a>
+
 </div>
 
-<div class="features">
+</section>
+
+<section id="about">
+
+<h2 class="title">Hakkımda</h2>
+
+<p style="line-height:2;color:#cbd5e1;">
+Delfa Zero olarak siber güvenlik ve yazılım geliştirme
+alanlarında çalışmalar yürütüyorum.
+
+Özellikle Python tabanlı araç geliştirme, OSINT,
+otomasyon sistemleri ve ağ güvenliği konularına ilgi duyuyorum.
+
+Amacım yeni teknolojiler öğrenmek, güvenlik farkındalığını
+artırmak ve açık kaynak dünyasına katkı sağlamaktır.
+</p>
+
+<div class="terminal">
+root@delfazero:~$ whoami <br><br>
+Cyber Security Researcher<br>
+Python Developer<br>
+OSINT Enthusiast<br>
+Open Source Contributor<br>
+<span class="cursor">█</span>
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="title">Uzmanlık Alanları</h2>
+
+<div class="cards">
 
 <div class="card">
-<h2>Secure</h2>
-<p>AES-256-GCM encryption.</p>
+<h3>Python Development</h3>
+<p>CLI araçları, otomasyon sistemleri ve özel projeler.</p>
 </div>
 
 <div class="card">
-<h2>Fast</h2>
-<p>Quick encryption and decryption.</p>
+<h3>Cyber Security</h3>
+<p>Sistem güvenliği, analiz ve araştırmalar.</p>
 </div>
 
 <div class="card">
-<h2>Open Source</h2>
-<p>Source code available on GitHub.</p>
+<h3>OSINT</h3>
+<p>Açık kaynak istihbaratı ve veri toplama çalışmaları.</p>
+</div>
+
+<div class="card">
+<h3>Network Technologies</h3>
+<p>DNS, SSL, TCP/IP ve ağ analizleri.</p>
 </div>
 
 </div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Misyon</h2>
+
+<p style="line-height:2;color:#cbd5e1;">
+Teknolojiyi anlamak, araştırmak ve üretmek...
+Sürekli gelişim, merak ve paylaşım benim için en önemli değerlerdir.
+</p>
+
+</section>
+
+<footer>
+© 2026 Delfa Zero • Cyber Security & Software Development
+</footer>
+
+<script>
+const text = "Siber Güvenlik Araştırmacısı • Yazılım Geliştirici";
+const typing = document.getElementById("typing");
+
+let i = 0;
+
+function type(){
+if(i < text.length){
+typing.innerHTML += text.charAt(i);
+i++;
+setTimeout(type,60);
+}
+}
+type();
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars = "01";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for(let x=0;x<columns;x++){
+drops[x]=1;
+}
+
+function draw(){
+
+ctx.fillStyle="rgba(5,8,22,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#00ff88";
+ctx.font=fontSize+"px monospace";
+
+for(let i=0;i<drops.length;i++){
+
+const text = chars[Math.floor(Math.random()*chars.length)];
+
+ctx.fillText(
+text,
+i*fontSize,
+drops[i]*fontSize
+);
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975){
+drops[i]=0;
+}
+
+drops[i]++;
+}
+}
+
+setInterval(draw,35);
+
+window.addEventListener("resize",()=>{
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+});
+</script>
 
 </body>
 </html>
